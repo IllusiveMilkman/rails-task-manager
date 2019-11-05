@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>My Tasks</h1>
+  <br>
+
+  <form>
+
+    <% @tasks.each do |task| %>
+      <div class="form-check">
+        <label>
+          <% tick = "" %>
+          <% tick = " checked" if task.completed == true %>
+          <!-- You need to add the "as: task" in your router.rb for this to link to the correct page -->
+          <input type="checkbox" name="check"<%= tick %>> <span class="label-text"><%= link_to task.title, task_path(task) %></span>
+          <!-- <a href="<%= task.id %>">
+            <i class="fa fa-trash-o"></i>
+          </a> -->
+          <%= link_to ' - delete', task_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+        </label>
+      </div>
+    <% end %>
+
+    <!-- Purely for demo purposes -->
+    <!-- <div class="form-check">
+      <label>
+        <input type="checkbox" name="check" > <span class="label-text">Example</span>
+      </label>
+    </div> -->
+
+  </form>
+
+  <hr>
+  <%= link_to "Create a new task", tasks_new_path %>
+
+
+</div>
+

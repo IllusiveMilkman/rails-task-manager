@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <h1>My Task</h1>
+    <%= link_to "Edit this task", task_edit_path %>
+  </div>
+
+  <p>Id: <%= @task.id %></p>
+  <p>Title: <%= @task.title %></p>
+  <p>Details: <%= @task.details %></p>
+  <p>Created at: <%= @task.created_at %></p>
+  <p>Updated at: <%= @task.updated_at %></p>
+  <p>Completed? <%= @task.completed %></p>
+
+  <hr>
+  <%= link_to "Back home", tasks_path %>
+
+</div>
+
